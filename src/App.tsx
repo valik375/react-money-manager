@@ -1,8 +1,11 @@
-function App() {
+import LoginPage from 'src/pages/LoginPage'
+
+
+const App = () => {
 
   return (
     <>
-      Hello
+      <LoginPage />
     </>
   )
 }
