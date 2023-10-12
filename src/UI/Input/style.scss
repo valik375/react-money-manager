@@ -2,11 +2,12 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  position: relative;
 
   .label {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 5px;
     color: $black;
   }
@@ -24,5 +25,13 @@
       font-weight: 300;
       color: $gray-300;
     }
+  }
+
+  .errors-message {
+    position: absolute;
+    top: calc(100% + 2px);
+    font-size: 10px;
+    font-weight: 500;
+    color: $red;
   }
 }

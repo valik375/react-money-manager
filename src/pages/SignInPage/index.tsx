@@ -1,40 +1,49 @@
-import { FC, useState } from 'react'
-import { getAuth, createUserWithEmailAndPassword  } from 'firebase/auth'
-import Card from 'src/UI/Card'
+import { FC } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { CreateUserSchema } from 'src/validations/authValidations.ts'
+import type { CreateUserType } from 'src/validations/authValidations.ts'
+import { Button, Card, Input } from 'src/UI'
 
 const SignInPage: FC = () => {
-  const auth = getAuth()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<CreateUserType>({ resolver: zodResolver(CreateUserSchema) })
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-  const handleRegistration = () => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user
-        console.log('User registered:', user)
-      })
-      .catch((error) => {
-        console.error('Registration error:', error)
-      })
+  const onSubmit: SubmitHandler<CreateUserType> = async (data) => {
+    console.log(data)
   }
 
   return (
     <div>
       <Card>
-        <input
+        <Input
+          {...register("email")}
+          errorsMessage={errors.email?.message}
+          label="Email"
           type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
         />
-        <input
+        <Input
+          {...register("name")}
+          errorsMessage={errors.name?.message}
+          label="Name"
+          type="text"
+        />
+        <Input
+          {...register("password")}
+          errorsMessage={errors.password?.message}
+          label="Password"
           type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleRegistration}>Register</button>
+        <Input
+          {...register("confirmPassword")}
+          errorsMessage={errors.confirmPassword?.message}
+          label="Confirm Password"
+          type="password"
+        />
+        <Button type="submit" onClick={handleSubmit(onSubmit)}>SingIn</Button>
       </Card>
     </div>
   )

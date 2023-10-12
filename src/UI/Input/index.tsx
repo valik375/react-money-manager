@@ -1,37 +1,45 @@
-import { FC, ChangeEvent } from 'react'
+import { FC, forwardRef, ForwardedRef, ChangeEvent } from 'react'
 import './style.scss'
 
 interface InputProps {
-  label?: string
-  id?: string
   type: string
+  label?: string
   placeholder?: string
   className?: string
-  value: string
-  onChange: (value: string) => void
+  name?: string
+  errorsMessage?: string
+  onBlur?: (event: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input: FC<InputProps> = ({ label, type, id, placeholder, value, onChange, className = '' }) => {
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.value)
-  }
+const Input: FC<InputProps> = forwardRef(({
+  label,
+  type,
+  placeholder,
+  className = '',
+  name = '',
+  onBlur,
+  onChange,
+  errorsMessage = ''
+}, ref: ForwardedRef<HTMLInputElement>) => {
 
   return (
     <div className={className + " input-group"}>
       {
-        label ? <label className="label" htmlFor={ id }>{ label }</label> : ''
+        label ? <label className="label">{ label }</label> : ''
       }
       <input
         className="input"
-        id={id}
+        ref={ ref }
         type={ type }
         placeholder={ placeholder }
-        value={ value }
-        onChange={ handleChange }
+        name={ name }
+        onBlur={ onBlur }
+        onChange={ onChange }
       />
+      <div className="errors-message">{ errorsMessage }</div>
     </div>
   )
-}
+})
 
 export default Input
