@@ -1,0 +1,13 @@
+.subtitle {
+  font-size: 12px;
+  font-weight: 400;
+  color: $gray-400;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 16px;
+  }
+}
