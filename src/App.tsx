@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ProtectedRoute from 'src/components/ProtectedRoute'
 import AuthLayout from 'src/layouts/AuthLayout'
 import routes from 'src/routes'
+import {Toaster} from "react-hot-toast";
 
 const App: FC = () => {
 
@@ -21,6 +22,10 @@ const App: FC = () => {
           })
         }
       </Routes>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+      />
     </Router>
   )
 }

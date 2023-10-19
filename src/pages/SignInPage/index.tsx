@@ -1,53 +1,75 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CreateUserSchema } from 'src/validations/authValidations.ts'
 import type { CreateUserType } from 'src/validations/authValidations.ts'
-import {Button, Card, Input, Subtitle, Title} from 'src/UI'
+import {APP_ROUTES, AUTH_ROUTES} from 'src/constants'
+import {useNavigate} from 'react-router-dom'
+import { createUser } from 'src/api/auth.ts'
+import {Button, Input, Loader} from 'src/UI'
+import AuthCard from 'src/components/Auth/AuthCard'
 
 import './style.scss'
 
 const SignInPage: FC = () => {
+  const [loading, setLoading] = useState(false)
+
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm<CreateUserType>({ resolver: zodResolver(CreateUserSchema) })
+  const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<CreateUserType> = async (data) => {
-    console.log(data)
+    setLoading(true)
+    const { success } = await createUser(data)
+    if (success) {
+      navigate(APP_ROUTES.home_path)
+    }
+    setLoading(false)
   }
 
   return (
-    <Card className="sign-in__card">
-      <Title className="sign-in__title">SignIn</Title>
-      <Subtitle className="sign-in__subtitle">Lorem ipsum dolor sit amet, consectetur <br/> adipisicing elit. Inventore, quam!</Subtitle>
-      <Input
-        {...register("email")}
-        errorsMessage={errors.email?.message}
-        label="Email"
-        type="email"
-      />
-      <Input
-        {...register("name")}
-        errorsMessage={errors.name?.message}
-        label="Name"
-        type="text"
-      />
-      <Input
-        {...register("password")}
-        errorsMessage={errors.password?.message}
-        label="Password"
-        type="password"
-      />
-      <Input
-        {...register("confirmPassword")}
-        errorsMessage={errors.confirmPassword?.message}
-        label="Confirm Password"
-        type="password"
-      />
-      <Button type="submit" onClick={handleSubmit(onSubmit)}>SingIn</Button>
-    </Card>
+    <>
+      { loading ? <Loader /> : null }
+      <AuthCard
+        title="SignIn page"
+        linkUrl={ AUTH_ROUTES.login_path }
+        linkText="Login!"
+        bottomText="Already have account?"
+      >
+        <Input
+          {...register("email")}
+          errorsMessage={errors.email?.message}
+          label="Email"
+          type="email"
+          placeholder="your@mail.com"
+        />
+        <Input
+          {...register("name")}
+          errorsMessage={errors.name?.message}
+          label="Name"
+          type="text"
+          placeholder="Jack Smith"
+        />
+        <Input
+          {...register("password")}
+          errorsMessage={errors.password?.message}
+          label="Password"
+          type="password"
+          placeholder="********"
+        />
+        <Input
+          {...register("confirmPassword")}
+          errorsMessage={errors.confirmPassword?.message}
+          label="Confirm Password"
+          type="password"
+          placeholder="********"
+        />
+        <Button type="submit" onClick={handleSubmit(onSubmit)}>SingIn</Button>
+      </AuthCard>
+    </>
   )
 }
 

@@ -14,3 +14,10 @@ export const CreateUserSchema = z.object({
 })
 
 export type CreateUserType = z.infer<typeof CreateUserSchema>
+
+export const LoginUserSchema = z.object({
+  email:  z.string().email().trim().toLowerCase(),
+  password: z.string().trim().min(passwordMinLength, { message: `Password must be ${passwordMinLength} or longer` }),
+})
+
+export type LoginUserType = z.infer<typeof CreateUserSchema>

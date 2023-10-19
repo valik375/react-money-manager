@@ -4,6 +4,9 @@ import Button from 'src/UI/Button'
 import Container from 'src/UI/Container'
 import Title from 'src/UI/Title'
 import Subtitle from 'src/UI/Subtitle'
+import Logo from 'src/UI/Logo'
+import Text from 'src/UI/Text'
+import Loader from 'src/UI/Loader'
 
 export {
   Card,
@@ -12,4 +15,7 @@ export {
   Container,
   Title,
   Subtitle,
+  Logo,
+  Text,
+  Loader,
 }

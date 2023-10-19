@@ -4,17 +4,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
-  border: 2px solid $light-blue;
+  border-radius: 100px;
+  border: 2px solid $green;
   cursor: pointer;
-  background: $light-blue;
+  background: $green;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   color: $white;
   transition: all .3s ease;
 
   &:hover {
-    color: $light-blue;
+    color: $green;
     background: $white;
   }
 }
