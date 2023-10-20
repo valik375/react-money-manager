@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 
 export const app = () => initializeApp({
-  apiKey: 'AIzaSyAx9a8i9fhUswIpvCP8QanD-zkhU9fgVzs',
-  authDomain: 'react-money-manager-9edf1.firebaseapp.com',
-  projectId: 'react-money-manager-9edf1',
-  storageBucket: 'react-money-manager-9edf1.appspot.com',
-  messagingSenderId: '397808631979',
-  appId: '1:397808631979:web:211a76b30352971010f7ee'
+  apiKey: import.meta.env.VITE_APP_API_KEY,
+  authDomain: import.meta.env.VITE_APP_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_APP_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_APP_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_APP_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID
 })
 
 export const auth = getAuth(app())

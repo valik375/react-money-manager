@@ -1,9 +1,9 @@
-import { FC } from 'react'
+import {FC} from 'react'
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ProtectedRoute from 'src/components/ProtectedRoute'
 import AuthLayout from 'src/layouts/AuthLayout'
 import routes from 'src/routes'
-import {Toaster} from "react-hot-toast";
+import {Toaster} from 'react-hot-toast'
 
 const App: FC = () => {
 
