@@ -1,0 +1,41 @@
+.sign-in {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sign-in__title {
+  margin-bottom: 24px;
+}
+
+.sign-in__subtitle {
+  margin-bottom: 20px;
+}
+
+.sign-in__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.sign-in__logo {
+  margin-bottom: 10px;
+}
+
+.sign-in__subtitle {
+  margin-bottom: 5px;
+}
+
+.sign-in__bottom {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.sign-in__link {
+  &.link {
+    font-weight: 600;
+  }
+}
