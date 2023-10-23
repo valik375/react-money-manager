@@ -5,10 +5,11 @@ interface ButtonProps {
   children: ReactNode
   className?: string
   type?: 'button' | 'submit'
+  isLoading?: boolean
   onClick: () => void
 }
 
-const Button: FC<ButtonProps> = ({ children, className = '', type = 'button', onClick }) => {
+const Button: FC<ButtonProps> = ({ children, className = '', type = 'button', isLoading, onClick }) => {
 
   const handleClick = () => {
     onClick()
@@ -16,11 +17,14 @@ const Button: FC<ButtonProps> = ({ children, className = '', type = 'button', on
 
   return (
     <button
-      className={className + " button"}
+      className={`${className} button`}
       type={type}
       onClick={handleClick}
     >
-      { children }
+      { isLoading
+        ? <div className="button__loader"> <span className="loader"></span> </div>
+        : <span>{ children }</span>
+      }
     </button>
   )
 }
