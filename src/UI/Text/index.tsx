@@ -7,11 +7,7 @@ interface TextProps {
 }
 
 const Text: FC<TextProps> = ({ children, className = '' }) => {
-  return (
-    <div className={className + " text"}>
-      { children }
-    </div>
-  )
+  return <div className={className + ' text'}>{children}</div>
 }
 
 export default Text

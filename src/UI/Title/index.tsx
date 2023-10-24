@@ -7,11 +7,7 @@ interface TitleProps {
 }
 
 const Title: FC<TitleProps> = ({ children, className = '' }) => {
-  return (
-    <div className={className + " title"}>
-      { children }
-    </div>
-  )
+  return <div className={className + ' title'}>{children}</div>
 }
 
 export default Title

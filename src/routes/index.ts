@@ -1,7 +1,5 @@
 import auth from './auth.tsx'
 
-const routes = [
-  ...auth
-]
+const routes = [...auth]
 
 export default routes

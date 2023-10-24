@@ -12,34 +12,36 @@ interface InputProps {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input: FC<InputProps> = forwardRef(({
-  label,
-  type,
-  placeholder,
-  className = '',
-  name = '',
-  onBlur,
-  onChange,
-  errorsMessage = ''
-}, ref: ForwardedRef<HTMLInputElement>) => {
-
-  return (
-    <div className={className + " input-group"}>
-      {
-        label ? <label className="label">{ label }</label> : ''
-      }
-      <input
-        className="input"
-        ref={ ref }
-        type={ type }
-        placeholder={ placeholder }
-        name={ name }
-        onBlur={ onBlur }
-        onChange={ onChange }
-      />
-      <div className="errors-message">{ errorsMessage }</div>
-    </div>
-  )
-})
+const Input: FC<InputProps> = forwardRef(
+  (
+    {
+      label,
+      type,
+      placeholder,
+      className = '',
+      name = '',
+      onBlur,
+      onChange,
+      errorsMessage = '',
+    },
+    ref: ForwardedRef<HTMLInputElement>,
+  ) => {
+    return (
+      <div className={className + ' input-group'}>
+        {label ? <label className="label">{label}</label> : ''}
+        <input
+          className="input"
+          ref={ref}
+          type={type}
+          placeholder={placeholder}
+          name={name}
+          onBlur={onBlur}
+          onChange={onChange}
+        />
+        <div className="errors-message">{errorsMessage}</div>
+      </div>
+    )
+  },
+)
 
 export default Input

@@ -1,4 +1,6 @@
 import { FC } from 'react'
+import MainLogo from 'src/assets/images/common/logo.svg'
+
 import './style.scss'
 
 interface LogoProps {
@@ -6,14 +8,7 @@ interface LogoProps {
 }
 
 const Logo: FC<LogoProps> = ({ className = '' }) => {
-
-  return (
-    <img
-      className={className + " logo"}
-      src="src/assets/images/common/logo.svg"
-      alt="Logo"
-    />
-  )
+  return <img className={className + ' logo'} src={MainLogo} alt="Logo" />
 }
 
 export default Logo
