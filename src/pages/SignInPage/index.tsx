@@ -41,7 +41,7 @@ const SignInPage: FC = () => {
       >
         <Input
           {...register('email')}
-          errorsMessage={errors.email?.message}
+          errorsMessage={errors.email?.messages}
           label="Email"
           type="email"
           placeholder="your@mail.com"
