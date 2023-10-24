@@ -12,6 +12,8 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
     "firebase": "^10.4.0",
+    "hasky": "^3.0.2",
+    "husky": "^8.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
@@ -31,5 +33,11 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": ""
+    }
   }
 }
