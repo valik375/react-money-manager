@@ -1,0 +1,30 @@
+.side-bar {
+  width: 260px;
+  padding: 16px;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: $shadow-sidebar;
+}
+
+.side-bar__header {
+  margin-bottom: 16px;
+}
+
+.side-bar__logo {
+  .logo__image {
+    width: 40px;
+    height: 40px;
+    background: $light-green;
+    padding: 4px;
+    border-radius: 4px;
+  }
+}
+
+.side-bar__body-title {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16.8px;
+  letter-spacing: 0.24px;
+  color: lighten($black, .5);
+  margin-bottom: 4px;
+}

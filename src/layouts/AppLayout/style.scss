@@ -1,0 +1,9 @@
+.app-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.app-layout__wrapper {
+  width: calc(100% - 300px);
+}
