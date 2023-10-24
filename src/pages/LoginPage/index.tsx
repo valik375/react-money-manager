@@ -1,12 +1,15 @@
-import {FC, useState} from 'react'
+import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import {useNavigate} from 'react-router-dom'
-import {APP_ROUTES, AUTH_ROUTES} from 'src/constants'
-import { CreateUserType, LoginUserSchema } from 'src/validations/authValidations.ts'
+import { useNavigate } from 'react-router-dom'
+import { APP_ROUTES, AUTH_ROUTES } from 'src/constants'
+import {
+  CreateUserType,
+  LoginUserSchema,
+} from 'src/validations/authValidations.ts'
 import { login } from 'src/api/auth.ts'
 import type { LoginUserType } from 'src/validations/authValidations.ts'
-import {Input, Button, Loader} from 'src/UI'
+import { Input, Button, Loader } from 'src/UI'
 import AuthCard from 'src/components/Auth/AuthCard'
 
 import './style.scss'
@@ -17,7 +20,7 @@ const LoginPage: FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<LoginUserType>({ resolver: zodResolver(LoginUserSchema) })
   const navigate = useNavigate()
 
@@ -32,23 +35,23 @@ const LoginPage: FC = () => {
 
   return (
     <>
-      { loading ? <Loader /> : null }
+      {loading ? <Loader /> : null}
       <AuthCard
         title="Login page"
-        linkUrl={ AUTH_ROUTES.sign_in_path }
+        linkUrl={AUTH_ROUTES.sign_in_path}
         linkText="SignIn!"
         bottomText="Have no account?"
       >
         <div className="login">
           <Input
-            {...register("email")}
+            {...register('email')}
             errorsMessage={errors.email?.message}
             label="Email"
             type="email"
             placeholder="your@mail.com"
           />
           <Input
-            {...register("password")}
+            {...register('password')}
             errorsMessage={errors.password?.message}
             label="Password"
             type="password"

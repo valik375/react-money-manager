@@ -7,7 +7,6 @@ interface LoaderProps {
 }
 
 const Loader: FC<LoaderProps> = ({ className = '', type = 'full' }) => {
-
   return (
     <div className={`${className} ${type} loader__wrapper`}>
       <div className="loader"></div>

@@ -8,19 +8,19 @@ interface ButtonProps {
   onClick: () => void
 }
 
-const Button: FC<ButtonProps> = ({ children, className = '', type = 'button', onClick }) => {
-
+const Button: FC<ButtonProps> = ({
+  children,
+  className = '',
+  type = 'button',
+  onClick,
+}) => {
   const handleClick = () => {
     onClick()
   }
 
   return (
-    <button
-      className={className + " button"}
-      type={type}
-      onClick={handleClick}
-    >
-      { children }
+    <button className={className + ' button'} type={type} onClick={handleClick}>
+      {children}
     </button>
   )
 }

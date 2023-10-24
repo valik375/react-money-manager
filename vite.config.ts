@@ -7,8 +7,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      src: path.resolve(__dirname, './src')
-    }
+      src: path.resolve(__dirname, './src'),
+    },
   },
   css: {
     preprocessorOptions: {
@@ -16,8 +16,8 @@ export default defineConfig({
         additionalData: `
           @import "./src/assets/styles/colors.scss";
           @import "./src/assets/styles/devices.scss";
-        `
-      }
-    }
+        `,
+      },
+    },
   },
 })

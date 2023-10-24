@@ -7,11 +7,7 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ children, className = '' }) => {
-  return (
-    <div className={className + " card"}>
-      { children }
-    </div>
-  )
+  return <div className={className + ' card'}>{children}</div>
 }
 
 export default Card

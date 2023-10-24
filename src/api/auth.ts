@@ -1,6 +1,11 @@
 import { auth } from 'src/api/firebase.ts'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut  } from 'firebase/auth'
-import {FIREBASE_ERRORS} from 'src/constants'
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+  signOut,
+} from 'firebase/auth'
+import { FIREBASE_ERRORS } from 'src/constants'
 import toast from 'react-hot-toast'
 
 interface createUserParams {
@@ -9,11 +14,15 @@ interface createUserParams {
   name: string
 }
 
-export const createUser = async ({ email, password, name }: createUserParams) => {
+export const createUser = async ({
+  email,
+  password,
+  name,
+}: createUserParams) => {
   try {
     const { user } = await createUserWithEmailAndPassword(auth, email, password)
     await updateProfile(user, {
-      displayName: name
+      displayName: name,
     })
     localStorage.setItem('uid', JSON.stringify(user.uid))
     return { success: true }

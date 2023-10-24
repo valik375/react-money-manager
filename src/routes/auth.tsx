@@ -8,14 +8,14 @@ const auth: Array<IRoute> = [
     name: AUTH_ROUTES.login_name,
     path: AUTH_ROUTES.login_path,
     element: <LoginPage />,
-    layout: 'auth'
+    layout: 'auth',
   },
   {
     name: AUTH_ROUTES.sign_in_name,
     path: AUTH_ROUTES.sign_in_path,
     element: <SignInPage />,
-    layout: 'auth'
-  }
+    layout: 'auth',
+  },
 ]
 
 export default auth

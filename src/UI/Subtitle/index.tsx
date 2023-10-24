@@ -7,11 +7,7 @@ interface SubtitleProps {
 }
 
 const Subtitle: FC<SubtitleProps> = ({ children, className = '' }) => {
-  return (
-    <div className={className + " subtitle"}>
-      { children }
-    </div>
-  )
+  return <div className={className + ' subtitle'}>{children}</div>
 }
 
 export default Subtitle
