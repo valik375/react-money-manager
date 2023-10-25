@@ -1,12 +1,12 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode, ButtonHTMLAttributes } from 'react'
 import './style.scss'
 
-interface ButtonProps {
-  children: ReactNode
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode | ReactNode[]
   className?: string
   type?: 'button' | 'submit'
   isLoading?: boolean
-  onClick: () => void
+  onClick?: () => void
 }
 
 const Button: FC<ButtonProps> = ({
@@ -16,16 +16,11 @@ const Button: FC<ButtonProps> = ({
   isLoading,
   onClick,
 }) => {
-  const handleClick = () => {
-    onClick()
-  }
-
   return (
-    <button className={`${className} button`} type={type} onClick={handleClick}>
+    <button className={`${className} button`} type={type} onClick={onClick}>
       {isLoading ? (
         <div className="button__loader">
-          {' '}
-          <span className="loader"></span>{' '}
+          <span className="loader" />
         </div>
       ) : (
         <span>{children}</span>
