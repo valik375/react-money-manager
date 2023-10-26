@@ -8,14 +8,16 @@ import {
   LoginUserSchema,
 } from 'src/validations/authValidations.ts'
 import { login } from 'src/api/auth.ts'
+import useUserStore from 'src/store/user.ts'
 import type { LoginUserType } from 'src/validations/authValidations.ts'
-import { Input, Button, Loader } from 'src/UI'
 import AuthCard from 'src/components/Auth/AuthCard'
+import { Input, Button, Loader } from 'src/UI'
 
 import './style.scss'
 
 const LoginPage: FC = () => {
   const [loading, setLoading] = useState(false)
+  const { setUser } = useUserStore()
 
   const {
     register,
@@ -26,7 +28,8 @@ const LoginPage: FC = () => {
 
   const onSubmit: SubmitHandler<CreateUserType> = async (userData) => {
     setLoading(true)
-    const { success } = await login(userData)
+    const { success, user } = await login(userData)
+    setUser(user)
     if (success) {
       navigate(APP_ROUTES.home_path)
     }

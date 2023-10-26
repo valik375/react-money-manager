@@ -53,7 +53,7 @@ export const login = async ({ email, password }: loginParams) => {
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password)
     localStorage.setItem('uid', JSON.stringify(user.uid))
-    return { success: true }
+    return { success: true, user }
   } catch (error: any) {
     toast.error(FIREBASE_ERRORS[error.code])
     return { success: false }
