@@ -4,10 +4,12 @@ import './style.scss'
 interface TextProps {
   children: ReactNode
   className?: string
+  nowrap?: boolean
 }
 
-const Text: FC<TextProps> = ({ children, className = '' }) => {
-  return <div className={className + ' text'}>{children}</div>
+const Text: FC<TextProps> = ({ children, className = '', nowrap = false }) => {
+  const textClass = `${className} text ${nowrap ? ' nowrap' : ''}`
+  return <div className={textClass}>{children}</div>
 }
 
 export default Text

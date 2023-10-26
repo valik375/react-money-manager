@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import { Logo } from 'src/UI'
-import MenuLink from 'src/components/App/SideBarMenu/components/MenuLink'
 import { APP_ROUTES } from 'src/constants'
 import dashboardIcon from 'src/assets/images/app/icons/dashboard-icon.svg'
+import { Logo, Text } from 'src/UI'
+import MenuLink from 'src/components/App/SideBarMenu/components/MenuLink'
 
 import './style.scss'
 
@@ -24,17 +24,31 @@ const menuLinks: Array<IMenuLinks> = [
 const SideBarMenu: FC<SideBarMenuProps> = () => {
   return (
     <div className="side-bar">
-      <div className="side-bar__container">
-        <div className="side-bar__header">
-          <Logo className="side-bar__logo" isText={true} />
+      <div className="side-bar__header">
+        <Logo className="side-bar__logo" isText={true} />
+      </div>
+      <div className="side-bar__body">
+        <div className="side-bar__body-title">Menu</div>
+        <div className="side-bar__body-links-wrapper">
+          {menuLinks.map(({ name, path, icon }) => (
+            <MenuLink key={path} name={name} icon={icon} path={path} />
+          ))}
         </div>
-        <div className="side-bar__body">
-          <div className="side-bar__body-title">Menu</div>
-          <div className="side-bar__body-links-wrapper">
-            {menuLinks.map(({ name, path, icon }) => (
-              <MenuLink key={path} name={name} icon={icon} path={path} />
-            ))}
-          </div>
+      </div>
+      <div className="side-bar__footer">
+        <div className="side-bar__footer-image">
+          <img src="" alt="User Image" />
+        </div>
+        <div className="side-bar__footer-info">
+          <Text className="side-bar__footer-name" nowrap={true}>
+            Valik Test
+          </Text>
+          <Text className="side-bar__footer-email" nowrap={true}>
+            testmail@gmail.com
+          </Text>
+        </div>
+        <div className="side-bar__footer-logout">
+          <img src="" alt="" />
         </div>
       </div>
     </div>
