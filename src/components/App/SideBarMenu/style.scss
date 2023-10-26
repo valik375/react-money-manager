@@ -21,7 +21,7 @@
 }
 
 .side-bar__body {
-  height: calc(100% - 100px);
+  height: calc(100% - 124px);
 }
 
 .side-bar__body-title {
@@ -38,6 +38,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-top: 2px solid lighten($black, 60%);
+  padding-top: 24px;
 }
 
 .side-bar__footer-image {
@@ -81,6 +83,7 @@
 .side-bar__footer-logout {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 
   img {
     width: 100%;

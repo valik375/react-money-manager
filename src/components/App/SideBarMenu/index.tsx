@@ -1,9 +1,10 @@
 import { FC } from 'react'
 import { APP_ROUTES } from 'src/constants'
-import dashboardIcon from 'src/assets/images/app/icons/dashboard-icon.svg'
-import { Logo, Text } from 'src/UI'
 import MenuLink from 'src/components/App/SideBarMenu/components/MenuLink'
+import { Logo, Text } from 'src/UI'
 
+import dashboardIcon from 'src/assets/images/app/icons/dashboard-icon.svg'
+import logoutIcon from 'src/assets/images/app/icons/logout-icon.svg'
 import './style.scss'
 
 interface SideBarMenuProps {}
@@ -48,7 +49,7 @@ const SideBarMenu: FC<SideBarMenuProps> = () => {
           </Text>
         </div>
         <div className="side-bar__footer-logout">
-          <img src="" alt="" />
+          <img src={logoutIcon} alt="Logout Icon" />
         </div>
       </div>
     </div>
