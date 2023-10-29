@@ -5,16 +5,16 @@
   align-items: center;
   justify-content: center;
   border-radius: 100px;
-  border: 2px solid $green;
+  border: 2px solid var(--primary);
   cursor: pointer;
-  background: $green;
+  background: var(--primary);
   font-size: 16px;
   font-weight: 400;
-  color: $white;
+  color: var(--primary-foreground);
   transition: all .3s ease;
 
   &:hover {
-    color: $green;
-    background: $white;
+    color: var(--primary);
+    background: var(--primary-foreground);
   }
 }
