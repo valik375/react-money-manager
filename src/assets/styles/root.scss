@@ -1,0 +1,32 @@
+ @layer base {
+  :root {
+    --background: #F4FDF8;
+    --foreground: #505050;
+
+    --popover: #FFFFFF;
+    --popover-foreground: #505050;
+    --popover-box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+
+    --input: #FFFFFF;
+    --input-foreground: #505050;
+    --input-border: #A3A3A3;
+    --input-placeholder: #B6B6B6;
+
+    --card: #FFFFFF;
+    --card-foreground: #505050;
+    --card-border: #E0E0E0;
+    --card-box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+
+    --primary: #73BA97;
+    --primary-foreground: #FFFFFF;
+
+    --constructive: #3DBA59;
+    --constructive-foreground: #FFFFFF;
+
+    --destructive: #C72C2C;
+    --destructive-foreground: #FFFFFF;
+
+    --gray: #A3A3A3;
+    --white: #FFFFFF;
+  }
+}
