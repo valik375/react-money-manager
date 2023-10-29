@@ -2,10 +2,7 @@ import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from 'react-router-dom'
-import {
-  CreateUserType,
-  LoginUserSchema,
-} from 'src/validations/authValidations.ts'
+import { CreateUserType, LoginUserSchema } from 'src/validations/authValidations.ts'
 import type { LoginUserType } from 'src/validations/authValidations.ts'
 import { APP_ROUTES, AUTH_ROUTES } from 'src/constants'
 import { login } from 'src/api/auth.ts'
@@ -55,7 +52,7 @@ const LoginPage: FC = () => {
           type="password"
           placeholder="********"
         />
-        <ButtonLoader onClick={handleSubmit(onSubmit)} isLoading={loading}>
+        <ButtonLoader onClick={handleSubmit(onSubmit)} isLoading={loading} disabled={loading}>
           Login
         </ButtonLoader>
       </div>

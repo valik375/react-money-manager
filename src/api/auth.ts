@@ -14,11 +14,7 @@ interface createUserParams {
   name: string
 }
 
-export const createUser = async ({
-  email,
-  password,
-  name,
-}: createUserParams) => {
+export const createUser = async ({ email, password, name }: createUserParams) => {
   try {
     const { user } = await createUserWithEmailAndPassword(auth, email, password)
     await updateProfile(user, {

@@ -9,15 +9,4 @@ import Logo from 'src/UI/Logo'
 import Text from 'src/UI/Text'
 import Loader from 'src/UI/Loader'
 
-export {
-  Card,
-  Input,
-  Button,
-  Container,
-  Title,
-  Subtitle,
-  Logo,
-  Text,
-  Loader,
-  ButtonLoader,
-}
+export { Card, Input, Button, Container, Title, Subtitle, Logo, Text, Loader, ButtonLoader }

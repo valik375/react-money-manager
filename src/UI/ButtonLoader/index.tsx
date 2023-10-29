@@ -8,14 +8,15 @@ interface ButtonLoaderProps extends IButtonProps {
 }
 
 const ButtonLoader = (props: ButtonLoaderProps) => {
+  const { isLoading, children, ...buttonProps } = props
   return (
-    <Button type={props.type} onClick={props.onClick}>
-      {props.isLoading ? (
+    <Button {...buttonProps}>
+      {isLoading ? (
         <div className="button__loader">
           <span className="loader" />
         </div>
       ) : (
-        props.children
+        children
       )}
     </Button>
   )

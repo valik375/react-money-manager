@@ -1,10 +1,11 @@
+import { clsx } from 'clsx'
 import { IButtonProps } from 'src/types'
 
 import './style.scss'
 
 const Button = (props: IButtonProps) => {
   return (
-    <button className={`${props.className} button`} {...props}>
+    <button {...props} className={clsx('button', props.className)}>
       {props.children}
     </button>
   )
