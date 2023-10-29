@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
-    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
+    "ts-check": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
