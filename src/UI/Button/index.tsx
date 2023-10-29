@@ -1,12 +1,28 @@
+import { ButtonHTMLAttributes, ReactNode } from 'react'
 import { clsx } from 'clsx'
-import { IButtonProps } from 'src/types'
 
 import './style.scss'
 
-const Button = (props: IButtonProps) => {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode | ReactNode[]
+  className?: string
+  disabled?: boolean
+  isLoading?: boolean
+  type?: 'button' | 'submit'
+  onClick?: () => void
+}
+
+const Button = (props: ButtonProps) => {
+  const { isLoading, children, className, ...buttonProps } = props
   return (
-    <button {...props} className={clsx('button', props.className)}>
-      {props.children}
+    <button {...buttonProps} className={clsx('button', className)}>
+      {isLoading ? (
+        <div className="button__loader">
+          <span className="loader" />
+        </div>
+      ) : (
+        children
+      )}
     </button>
   )
 }

@@ -6,7 +6,7 @@ import { CreateUserType, LoginUserSchema } from 'src/validations/authValidations
 import type { LoginUserType } from 'src/validations/authValidations.ts'
 import { APP_ROUTES, AUTH_ROUTES } from 'src/constants'
 import { login } from 'src/api/auth.ts'
-import { Input, ButtonLoader } from 'src/UI'
+import { Input, Button } from 'src/UI'
 import AuthCard from 'src/components/Auth/AuthCard'
 
 import './style.scss'
@@ -52,9 +52,9 @@ const LoginPage: FC = () => {
           type="password"
           placeholder="********"
         />
-        <ButtonLoader onClick={handleSubmit(onSubmit)} isLoading={loading} disabled={loading}>
+        <Button onClick={handleSubmit(onSubmit)} isLoading={loading} disabled={loading}>
           Login
-        </ButtonLoader>
+        </Button>
       </div>
     </AuthCard>
   )
