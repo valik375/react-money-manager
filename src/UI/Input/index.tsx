@@ -14,16 +14,7 @@ interface InputProps {
 
 const Input: FC<InputProps> = forwardRef(
   (
-    {
-      label,
-      type,
-      placeholder,
-      className = '',
-      name = '',
-      onBlur,
-      onChange,
-      errorsMessage = '',
-    },
+    { label, type, placeholder, className = '', name = '', onBlur, onChange, errorsMessage = '' },
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     return (

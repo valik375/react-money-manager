@@ -1,26 +1,28 @@
-import { FC, ReactNode } from 'react'
+import { ButtonHTMLAttributes, ReactNode } from 'react'
+import { clsx } from 'clsx'
+
 import './style.scss'
 
-interface ButtonProps {
-  children: ReactNode
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode | ReactNode[]
   className?: string
+  disabled?: boolean
+  isLoading?: boolean
   type?: 'button' | 'submit'
-  onClick: () => void
+  onClick?: () => void
 }
 
-const Button: FC<ButtonProps> = ({
-  children,
-  className = '',
-  type = 'button',
-  onClick,
-}) => {
-  const handleClick = () => {
-    onClick()
-  }
-
+const Button = (props: ButtonProps) => {
+  const { isLoading, children, className, ...buttonProps } = props
   return (
-    <button className={className + ' button'} type={type} onClick={handleClick}>
-      {children}
+    <button {...buttonProps} className={clsx('button', className)}>
+      {isLoading ? (
+        <div className="button__loader">
+          <span className="loader" />
+        </div>
+      ) : (
+        children
+      )}
     </button>
   )
 }
