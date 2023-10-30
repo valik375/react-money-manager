@@ -1,32 +1,31 @@
-import { FC } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { FC, ReactElement } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import useUserStore from 'src/store/useUserStore.ts'
 import useGlobalLoader from 'src/hooks/useGlobalLoader.ts'
 import { APP_ROUTES, AUTH_ROUTES } from 'src/constants'
 import MenuLink from 'src/components/App/SideBarMenu/components/MenuLink'
 import { Logo, Text } from 'src/UI'
 
-import dashboardIcon from 'src/assets/images/app/icons/dashboard-icon.svg'
-import logoutIcon from 'src/assets/images/app/icons/logout-icon.svg'
+import { User2, LogOut, LayoutDashboard } from 'lucide-react'
 import './style.scss'
 
 interface SideBarMenuProps {}
 
 interface IMenuLinks {
   name: string
-  icon: string
+  icon: ReactElement
   path: string
 }
 const menuLinks: Array<IMenuLinks> = [
   {
     name: 'Home',
-    icon: dashboardIcon,
+    icon: <LayoutDashboard />,
     path: APP_ROUTES.home_path,
   },
 ]
 
 const SideBarMenu: FC<SideBarMenuProps> = () => {
-  const { logout } = useUserStore()
+  const { logout, user } = useUserStore()
   const { showLoader, hideLoader } = useGlobalLoader()
   const navigation = useNavigate()
 
@@ -53,19 +52,21 @@ const SideBarMenu: FC<SideBarMenuProps> = () => {
         </div>
       </div>
       <div className="side-bar__footer">
-        <div className="side-bar__footer-image">
-          <img src="" alt="User Image" />
-        </div>
-        <div className="side-bar__footer-info">
-          <Text className="side-bar__footer-name" nowrap={true}>
-            Valik Test
-          </Text>
-          <Text className="side-bar__footer-email" nowrap={true}>
-            testmail@gmail.com
-          </Text>
-        </div>
+        <Link className="side-bar__profile" to={'profile'}>
+          <div className="side-bar__footer-image">
+            {user?.photoURL ? <img src={user.photoURL} alt="Logout Icon" /> : <User2 />}
+          </div>
+          <div className="side-bar__footer-info">
+            <Text className="side-bar__footer-name" nowrap={true}>
+              {user?.displayName}
+            </Text>
+            <Text className="side-bar__footer-email" nowrap={true}>
+              {user?.email}
+            </Text>
+          </div>
+        </Link>
         <div className="side-bar__footer-logout" onClick={userLogout}>
-          <img src={logoutIcon} alt="Logout Icon" />
+          <LogOut />
         </div>
       </div>
     </div>
