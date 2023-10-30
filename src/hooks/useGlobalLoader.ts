@@ -1,6 +1,5 @@
 const useGlobalLoader = () => {
-  const loader: HTMLElement | null =
-    document.getElementById('global-full-loader')
+  const loader: HTMLElement | null = document.getElementById('global-full-loader')
 
   const showLoader = () => {
     if (loader) {

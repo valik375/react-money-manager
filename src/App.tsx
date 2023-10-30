@@ -13,10 +13,7 @@ const App: FC = () => {
         {routes.map((route) => {
           return route.layout === 'app' ? (
             <Route key={route.path} element={<ProtectedRoute />}>
-              <Route
-                path={route.path}
-                element={<AppLayout> {route.element} </AppLayout>}
-              />
+              <Route path={route.path} element={<AppLayout> {route.element} </AppLayout>} />
             </Route>
           ) : (
             <Route

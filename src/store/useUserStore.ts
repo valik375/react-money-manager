@@ -14,11 +14,7 @@ import { IUser } from 'src/types/user.ts'
 interface IUserStore {
   user: IUser | null
   setUser: (user: any) => void
-  createUser: ({
-    email,
-    password,
-    name,
-  }: createUserParams) => Promise<{ success: boolean }>
+  createUser: ({ email, password, name }: createUserParams) => Promise<{ success: boolean }>
   login: ({ email, password }: loginParams) => Promise<{ success: boolean }>
   logout: () => Promise<{ success: boolean }>
   onUserStateChange: () => void
@@ -44,11 +40,7 @@ const useUserStore = create<IUserStore>((set) => ({
     })),
   createUser: async ({ email, password, name }: createUserParams) => {
     try {
-      const { user } = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password,
-      )
+      const { user } = await createUserWithEmailAndPassword(auth, email, password)
       await updateProfile(user, {
         displayName: name,
       })
