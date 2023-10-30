@@ -13,11 +13,7 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
     <div className="auth-layout">
       <Container className="auth-layout__container">
         <div className="auth-layout__left">
-          <img
-            className="auth-layout__image"
-            src={authLayoutImage}
-            alt="Money"
-          />
+          <img className="auth-layout__image" src={authLayoutImage} alt="Money" />
         </div>
         <div className="auth-layout__right">
           <Card className="auth-layout__card">{children}</Card>

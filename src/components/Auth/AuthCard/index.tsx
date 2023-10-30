@@ -12,13 +12,7 @@ interface AuthCardProps {
   linkUrl: string
 }
 
-const AuthCard: FC<AuthCardProps> = ({
-  children,
-  title,
-  bottomText,
-  linkText,
-  linkUrl,
-}) => {
+const AuthCard: FC<AuthCardProps> = ({ children, title, bottomText, linkText, linkUrl }) => {
   return (
     <div className="auth-card">
       <div className="auth-card__top">
