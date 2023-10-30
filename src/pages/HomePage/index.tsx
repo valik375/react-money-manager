@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import useUserStore from 'src/store/user.ts'
+import useUserStore from 'src/store/useUserStore.ts'
 
 import './style.scss'
 

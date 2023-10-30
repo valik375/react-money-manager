@@ -1,4 +1,5 @@
 import { FC, useState } from 'react'
+import useUserStore from 'src/store/useUserStore.ts'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from 'react-router-dom'
@@ -7,8 +8,6 @@ import {
   CreateUserType,
   LoginUserSchema,
 } from 'src/validations/authValidations.ts'
-import { login } from 'src/api/auth.ts'
-import useUserStore from 'src/store/user.ts'
 import type { LoginUserType } from 'src/validations/authValidations.ts'
 import AuthCard from 'src/components/Auth/AuthCard'
 import { Input, Button, Loader } from 'src/UI'
@@ -16,8 +15,9 @@ import { Input, Button, Loader } from 'src/UI'
 import './style.scss'
 
 const LoginPage: FC = () => {
+  const { login } = useUserStore()
+
   const [loading, setLoading] = useState(false)
-  const { setUser } = useUserStore()
 
   const {
     register,
@@ -28,8 +28,7 @@ const LoginPage: FC = () => {
 
   const onSubmit: SubmitHandler<CreateUserType> = async (userData) => {
     setLoading(true)
-    const { success, user } = await login(userData)
-    setUser(user)
+    const { success } = await login(userData)
     if (success) {
       navigate(APP_ROUTES.home_path)
     }

@@ -1,5 +1,8 @@
 import { FC } from 'react'
-import { APP_ROUTES } from 'src/constants'
+import { useNavigate } from 'react-router-dom'
+import useUserStore from 'src/store/useUserStore.ts'
+import useGlobalLoader from 'src/hooks/useGlobalLoader.ts'
+import { APP_ROUTES, AUTH_ROUTES } from 'src/constants'
 import MenuLink from 'src/components/App/SideBarMenu/components/MenuLink'
 import { Logo, Text } from 'src/UI'
 
@@ -23,6 +26,19 @@ const menuLinks: Array<IMenuLinks> = [
 ]
 
 const SideBarMenu: FC<SideBarMenuProps> = () => {
+  const { logout } = useUserStore()
+  const { showLoader, hideLoader } = useGlobalLoader()
+  const navigation = useNavigate()
+
+  const userLogout = async () => {
+    showLoader()
+    const { success } = await logout()
+    if (success) {
+      navigation(AUTH_ROUTES.login_path)
+    }
+    hideLoader()
+  }
+
   return (
     <div className="side-bar">
       <div className="side-bar__header">
@@ -48,7 +64,7 @@ const SideBarMenu: FC<SideBarMenuProps> = () => {
             testmail@gmail.com
           </Text>
         </div>
-        <div className="side-bar__footer-logout">
+        <div className="side-bar__footer-logout" onClick={userLogout}>
           <img src={logoutIcon} alt="Logout Icon" />
         </div>
       </div>

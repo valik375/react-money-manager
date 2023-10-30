@@ -17,5 +17,6 @@ module.exports = {
     ],
     '@typescript-eslint/no-explicit-any': 'off',
     'prettier/prettier': 'off',
+    'react-hooks/exhaustive-deps': 'off',
   },
 }

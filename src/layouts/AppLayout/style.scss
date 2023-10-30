@@ -8,3 +8,11 @@
   width: calc(100% - 260px);
   height: 100vh;
 }
+
+#global-full-loader {
+  display: none;
+
+  &.show {
+    display: flex;
+  }
+}
