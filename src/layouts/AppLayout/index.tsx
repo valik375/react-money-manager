@@ -13,7 +13,10 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const { onUserStateChange } = useUserStore()
 
   useEffect(() => {
-    onUserStateChange()
+    const setup = async () => {
+      await onUserStateChange()
+    }
+    setup()
   }, [])
 
   return (

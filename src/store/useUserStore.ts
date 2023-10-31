@@ -17,7 +17,7 @@ interface IUserStore {
   createUser: ({ email, password, name }: createUserParams) => Promise<{ success: boolean }>
   login: ({ email, password }: loginParams) => Promise<{ success: boolean }>
   logout: () => Promise<{ success: boolean }>
-  onUserStateChange: () => void
+  onUserStateChange: () => Promise<void>
 }
 
 interface createUserParams {
@@ -80,8 +80,8 @@ const useUserStore = create<IUserStore>((set) => ({
       return { success: false }
     }
   },
-  onUserStateChange: () => {
-    onAuthStateChanged(auth, (user) => {
+  onUserStateChange: async () => {
+    await onAuthStateChanged(auth, (user) => {
       set(() => ({
         user: user,
       }))
