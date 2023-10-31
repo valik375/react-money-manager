@@ -1,0 +1,18 @@
+.app-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.app-layout__wrapper {
+  width: calc(100% - 260px);
+  height: 100vh;
+}
+
+#global-full-loader {
+  display: none;
+
+  &.show {
+    display: flex;
+  }
+}

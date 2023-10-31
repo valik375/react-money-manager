@@ -1,17 +1,19 @@
 import { FC, useState } from 'react'
+import useUserStore from 'src/store/useUserStore.ts'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from 'react-router-dom'
-import { CreateUserType, LoginUserSchema } from 'src/validations/authValidations.ts'
 import type { LoginUserType } from 'src/validations/authValidations.ts'
 import { APP_ROUTES, AUTH_ROUTES } from 'src/constants'
-import { login } from 'src/api/auth.ts'
-import { Input, Button } from 'src/UI'
+import { CreateUserType, LoginUserSchema } from 'src/validations/authValidations.ts'
 import AuthCard from 'src/components/Auth/AuthCard'
+import { Input, Button } from 'src/UI'
 
 import './style.scss'
 
 const LoginPage: FC = () => {
+  const { login } = useUserStore()
+
   const [loading, setLoading] = useState(false)
 
   const {

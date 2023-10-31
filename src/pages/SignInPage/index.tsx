@@ -1,17 +1,18 @@
 import { FC, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CreateUserSchema } from 'src/validations/authValidations.ts'
 import type { CreateUserType } from 'src/validations/authValidations.ts'
+import useUserStore from 'src/store/useUserStore.ts'
 import { APP_ROUTES, AUTH_ROUTES } from 'src/constants'
-import { useNavigate } from 'react-router-dom'
-import { createUser } from 'src/api/auth.ts'
 import { Button, Input, Loader } from 'src/UI'
 import AuthCard from 'src/components/Auth/AuthCard'
 
 import './style.scss'
 
 const SignInPage: FC = () => {
+  const { createUser } = useUserStore()
   const [loading, setLoading] = useState(false)
 
   const {
