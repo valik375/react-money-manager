@@ -9,4 +9,10 @@ export const AUTH_ROUTES = {
 export const APP_ROUTES = {
   home_path: '/',
   home_name: 'Home',
+
+  expenses_path: '/expenses',
+  expenses_name: 'Expenses',
+
+  expenses_details_path: '/expenses/:date/:day',
+  expenses_details_name: 'ExpensesDetails',
 }

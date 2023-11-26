@@ -1,0 +1,21 @@
+.expenses-modal .modal {
+  width: 40vw;
+  height: auto;
+}
+
+.expenses-modal__wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.expenses-modal__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: $black;
+  padding-right: 36px;
+}
+
+.expenses-modal__form {
+  margin-top: 26px;
+}

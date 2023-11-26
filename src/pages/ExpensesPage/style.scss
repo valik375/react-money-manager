@@ -1,0 +1,9 @@
+.expenses-page__button-plus {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+
+  & path {
+    stroke: $black;
+  }
+}
