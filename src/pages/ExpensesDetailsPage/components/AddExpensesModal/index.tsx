@@ -30,7 +30,7 @@ const AddExpensesModal: FC<AddExpensesModalProps> = (props) => {
 
   const submit: SubmitHandler<CreateExpensesType> = async (userData) => {
     setIsLoading(true)
-    await setCalendarExpenses(userData, date, day, user?.uid)
+    await setCalendarExpenses(userData, date || '', day || '', user?.uid || '')
     setIsLoading(false)
     reset({ name: '', price: '', quantity: '' })
   }
