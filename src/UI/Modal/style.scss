@@ -1,0 +1,62 @@
+.modal__backdrop {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: transparentize($black, .4);
+  z-index: 9999;
+  transition: all .3s ease;
+  opacity: 0;
+  pointer-events: none;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+
+    .modal {
+      transform: translateY(0);
+    }
+  }
+}
+
+.modal {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  background: $white;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all .3s ease;
+  transform: translateY(50px);
+}
+
+.modal_close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 32px;
+  height: 32px;
+  background: lighten($black, 60%);
+  border-radius: 4px;
+  transition: all .3s ease;
+  cursor: pointer;
+
+  svg {
+    transform: rotate(45deg);
+
+    path {
+      stroke: $black;
+    }
+  }
+
+  &:hover {
+    background: lighten($black, 50%);
+  }
+}

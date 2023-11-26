@@ -1,0 +1,29 @@
+.expenses-list__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 10px;
+  background: $white;
+  border: 1px solid $border-color;
+}
+
+.expenses-list__item-wrapper,
+.expenses-list__item-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.expenses-list__item-wrapper {
+  max-width: calc(100% - 150px);
+}
+
+.expenses-list__item-name,
+.expenses-list__item-total,
+.expenses-list__item-quantity {
+  font-size: 16px;
+  font-weight: 500;
+  color: $black;
+}

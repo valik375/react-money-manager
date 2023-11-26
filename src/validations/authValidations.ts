@@ -43,3 +43,11 @@ export const LoginUserSchema = z.object({
 })
 
 export type LoginUserType = z.infer<typeof CreateUserSchema>
+
+export const CreateExpensesSchema = z.object({
+  name: z.string().trim().nonempty('Field is required'),
+  price: z.string().trim().nonempty('Field is required'),
+  quantity: z.string().trim().nonempty('Field is required'),
+})
+
+export type CreateExpensesType = z.infer<typeof CreateExpensesSchema>

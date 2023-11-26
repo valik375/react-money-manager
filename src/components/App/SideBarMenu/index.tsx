@@ -6,7 +6,7 @@ import { APP_ROUTES, AUTH_ROUTES } from 'src/constants'
 import MenuLink from 'src/components/App/SideBarMenu/components/MenuLink'
 import { Logo, Text } from 'src/UI'
 
-import { User2, LogOut, LayoutDashboard } from 'lucide-react'
+import { User2, LogOut, LayoutDashboard, CandlestickChart } from 'lucide-react'
 import './style.scss'
 
 interface SideBarMenuProps {}
@@ -21,6 +21,11 @@ const menuLinks: Array<IMenuLinks> = [
     name: 'Home',
     icon: <LayoutDashboard />,
     path: APP_ROUTES.home_path,
+  },
+  {
+    name: 'Expenses',
+    icon: <CandlestickChart />,
+    path: APP_ROUTES.expenses_path,
   },
 ]
 
@@ -52,7 +57,7 @@ const SideBarMenu: FC<SideBarMenuProps> = () => {
         </div>
       </div>
       <div className="side-bar__footer">
-        <Link className="side-bar__profile" to={'profile'}>
+        <Link className="side-bar__profile" to={'/profile'}>
           <div className="side-bar__footer-image">
             {user?.photoURL ? <img src={user.photoURL} alt="Logout Icon" /> : <User2 />}
           </div>
